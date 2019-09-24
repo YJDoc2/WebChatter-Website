@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/messages.css" />
+    <title>Chat | <%= otherUser.userName%></title>
+  </head>
+
+  <body>
+    <%- include('partials/header',{username:username}) %>
+    <div class="container box">
+      <div class="chat-name mt-3" id="title">
+        <span>IMG/ICO</span>
+        <h3 style="display: inline"><%= otherUser.userName%></h3>
+      </div>
+      <hr />
+      <div class="chat-history mb-2">
+        <div class="textBox"></div>
+      </div>
+
+      <div class="container d-flex">
+        <input
+          type="text"
+          name="msg"
+          id="msg"
+          placeholder="Enter Message..."
+          class="form-control mb-1"
+        />
+        <a href="#" class="btn btn-primary m-2 " id="sendBtn">Send</a>
+      </div>
+    </div>
+
+    <%include ./partials/footer%>
+    <script src="/js/jQuery.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/newChat.js"></script>
+  </body>
+</html>

@@ -1,0 +1,9 @@
+<%if(users.length>0){%>
+<ul class="list-group my-3">
+    <% users.forEach((user)=>{%>
+    <li class="list-group-item">
+        <%- include('./userRowView',{user:user}) %>
+    </li>
+    <% })%>
+</ul>
+<%}%>

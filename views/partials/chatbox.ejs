@@ -1,0 +1,11 @@
+<%if(chats.length>0){%>
+<ul class="list-group my-3">
+  <% chats.forEach((chat)=>{%>
+  <%let chatName = chat.usersUName[0] == user? chat.usersUName[1]:chat.usersUName[0]%>
+  <%let unread = chat.lastSender==user?0:chat.unreadMsg%>
+  <li class="list-group-item">
+    <%- include('./chatRowView',{chatName:chatName, chatid:chat.uuid,unread:unread}) %>
+  </li>
+  <% })%>
+</ul>
+<%}%>

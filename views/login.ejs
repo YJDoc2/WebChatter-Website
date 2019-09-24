@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <title>WebChatter | LogIn</title>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">WebChatter App</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarsExampleDefault"
+        aria-controls="navbarsExampleDefault"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+          <li class="nav-item active">
+            <a class="nav-link" href="#"
+              >Login <span class="sr-only">(current)</span></a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <%let err =false; pwdErr = false;%> <%if(locals.errors){
+    if(locals.errors.length>1){err = true;} errors.forEach(err=>{
+    if(err.param=="password2"){ pwdErr = true;} }); }%>
+    <div class="container mt-2">
+      <%if(err || locals.message){%>
+      <div class="alert alert-warning">All Fields Should Be Complete</div>
+      <%}%> <%if(pwdErr){%>
+      <div class="alert alert-danger">Passwords do not Match</div>
+      <%}%> <%if(locals.success){%>
+      <div class="alert alert-success">You Can Now Log In</div>
+      <%}%> <%if(locals.noUser){%>
+      <div class="alert alert-danger">No User Found</div>
+      <%}%> <%if(locals.wrongPwd){%>
+      <div class="alert alert-danger">Wrong Password</div>
+      <%}%> <%if(locals.unameTaken){%>
+      <div class="alert alert-warning">User Name is Taken</div>
+      <%}%>
+    </div>
+
+    <div class="container mt-1">
+      <div class="row">
+        <div class="form col-md-4 col-sm-10 box">
+          <div class="p-5">
+            <h1>Sign Up</h1>
+            <hr />
+            <form action="/users/register" method="post">
+              <div class="form-group">
+                <label for="name"><h3>Name:</h3></label>
+                <input
+                  type="text"
+                  name="name"
+                  id="nameInput"
+                  class="from-control"
+                  placeholder="Enter Name"
+                />
+              </div>
+              <div class="form-group">
+                <label for="emailId"><h3>Email:</h3></label>
+                <input
+                  type="email"
+                  name="email"
+                  id="emailInput"
+                  class="from-control"
+                  placeholder="Enter Email"
+                />
+              </div>
+              <div class="form-group">
+                <label for="usrName"><h3>User Name:</h3></label>
+                <input
+                  type="text"
+                  name="username"
+                  id="usrNameInput"
+                  class="from-control"
+                  placeholder="Enter User Name"
+                />
+              </div>
+              <div class="form-group">
+                <label for="password"><h3>Password:</h3></label>
+                <input
+                  type="password"
+                  name="password"
+                  id="passwordInput"
+                  class="from-control"
+                  placeholder="Enter password"
+                />
+              </div>
+              <div class="form-group">
+                <label for="password"><h3>Confirm Password:</h3></label>
+                <input
+                  type="password"
+                  name="password2"
+                  id="password2Input"
+                  class="from-control"
+                  placeholder="confirm password"
+                />
+              </div>
+              <br />
+              <div class="form-group">
+                <input type="submit" value="Register" class="btn btn-primary" />
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="form offset-md-4 col-md-4 col-sm-10 box ">
+          <div class="container p-5">
+            <h1>Log In</h1>
+            <hr />
+            <form action="/users/login" method="post">
+              <div class="form-group bloat">
+                <label for="usrId"><h3>User Name:</h3></label>
+                <input
+                  type="text"
+                  name="username"
+                  id="usrNameInput"
+                  class="from-control"
+                  placeholder="Enter User Name"
+                />
+              </div>
+              <div class="form-group">
+                <label for="password"><h3>Password:</h3></label>
+                <input
+                  type="password"
+                  name="password"
+                  id="passwordInput"
+                  class="from-control"
+                  placeholder="Enter password"
+                />
+              </div>
+              <br />
+              <div class="form-group">
+                <input type="submit" value="Log In" class="btn btn-primary" />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/jQuery.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

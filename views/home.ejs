@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <title>WebChatter | Home</title>
+  </head>
+
+  <body>
+    <%- include('partials/header',{username:username}) %>
+    <div class="row">
+      <div id="searchbar" class="col-md-4">
+        <%- include('./partials/newChatSearch')%>
+      </div>
+      <div class="col-md-7 col-sm-10 container" id="chatbox">
+        <%- include('partials/chatbox',{user:username,chats:chats}) %>
+      </div>
+    </div>
+    <%include ./partials/footer%>
+
+    <script src="/js/jQuery.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/homePage.js"></script>
+  </body>
+</html>

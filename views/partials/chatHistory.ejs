@@ -1,0 +1,10 @@
+
+    <%chat.msgs.forEach((msg) =>{%> <%if (msg.sender == chatName)
+          {addClass= " speech-bubble-other";} else {addClass =
+          "speech-bubble-self";}%>
+
+    <div class="textBox">
+        <span class=<%= addClass%>><%= msg.text%></span>
+    </div>
+
+    <%})%>
